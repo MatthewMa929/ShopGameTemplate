@@ -1,12 +1,5 @@
 extends Node2D
 
+#Holds an item, player should be able to place item here
+
 @export var item:Item
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
