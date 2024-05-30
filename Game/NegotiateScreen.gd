@@ -23,9 +23,9 @@ func _process(delta):
 		dec_icon.position.x += 64
 		digit_ptr -= 1
 	if Input.is_action_just_pressed("MoveDigitUp"):
-		price_digit_arr[digit_ptr].text = "[color=black]" + str(int(price_digit_arr[digit_ptr].text) + 1)
+		increase_digit(digit_ptr)
 	if Input.is_action_just_pressed("MoveDigitDown"):
-		price_digit_arr[digit_ptr].text = "[color=black]" + str(int(price_digit_arr[digit_ptr].text) - 1)
+		decrease_digit(digit_ptr)
 
 func duplicate_button(num):
 	var new_price_box = price_box.duplicate(true)
@@ -39,5 +39,29 @@ func duplicate_button(num):
 	add_child(new_price_digit)
 	add_child(new_price_box)
 
-func change_price(new_price):
-	pass
+func change_digit_text(new_digit_text, ptr=digit_ptr):
+	price_digit_arr[ptr].text = "[color=black]" + str(new_digit_text)
+
+func increase_digit(curr_digit):
+	if curr_digit > Global.max_digits:
+		return false
+	if int(price_digit_arr[curr_digit].text) == 9:
+		if increase_digit(curr_digit + 1):
+			change_digit_text(0, curr_digit)
+			return true
+		else:
+			return false
+	change_digit_text(int(price_digit_arr[curr_digit].text) + 1, curr_digit)
+	return true
+
+func decrease_digit(curr_digit):
+	if curr_digit > Global.max_digits:
+		return false
+	if int(price_digit_arr[curr_digit].text) == 0:
+		if decrease_digit(curr_digit + 1):
+			change_digit_text(9, curr_digit)
+			return true
+		else:
+			return false
+	change_digit_text(int(price_digit_arr[curr_digit].text) - 1, curr_digit)
+	return true
