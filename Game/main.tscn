@@ -10,6 +10,16 @@ script = ExtResource("1_3wfpr")
 
 [node name="ActionManager" parent="." instance=ExtResource("2_2dwvk")]
 
+[node name="ShopStand" parent="ActionManager/ShopInventory" index="0"]
+position = Vector2(197, 180)
+
+[node name="Player" parent="ActionManager" index="1"]
+position = Vector2(48, 47)
+
 [node name="UI" parent="." instance=ExtResource("3_s5qw3")]
 
 [node name="AudioManager" parent="." instance=ExtResource("2_qgc0n")]
+
+[editable path="ActionManager"]
+[editable path="ActionManager/ShopInventory"]
+[editable path="ActionManager/NPCManager"]
