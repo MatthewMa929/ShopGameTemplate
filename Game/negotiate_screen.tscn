@@ -34,3 +34,8 @@ texture = ExtResource("3_mcll3")
 position = Vector2(902, 139)
 rotation = -3.14159
 texture = ExtResource("3_mcll3")
+
+[node name="PricePercentage" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

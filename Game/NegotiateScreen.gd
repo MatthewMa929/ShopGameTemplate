@@ -4,6 +4,7 @@ extends Control
 @onready var dec_icon = $DecIcon
 @onready var price_box = $PriceBox
 @onready var price_digit = $PriceDigit
+@onready var price_percentage = $PricePercentage
 @onready var price_box_arr = [price_box]
 @onready var price_digit_arr = [price_digit]
 @onready var digit_ptr = 0
